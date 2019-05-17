@@ -9,7 +9,7 @@ nb_dir = "/home/xilinx/jupyter_notebooks/signal_gen.ipynb"
 #place signal_gen.ipynb at ~/jupyter_notebooks
 if os.path.exists(nb_dir):
    os.remove(nb_dir)
-shutil.move("./signal_gen.ipynb",nb_dir)
+shutil.move("signal_gen.ipynb",nb_dir)
 
 #place folder signal_gen at py_dir 
 if os.path.exists(py_dir):
