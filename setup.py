@@ -3,20 +3,28 @@ import os
 import sys
 import shutil
 
-if os.path.exists('/home/xilinx/test'):
-   shutil.rmtree('/home/xilinx/test')
-shutil.copytree('test','/home/xilinx/test')
-print("Done downloading test from git!")
+py_dir = "/usr/local/lib/python3.6/dist-packages/signal_gen"
+nb_dir = "/home/xilinx/jupyter_notebooks/signal_gen.ipynb"
+
+#place signal_gen.ipynb at ~/jupyter_notebooks
+shutil.move("./signal_gen.ipynb",nb_dir)
+
+#place folder signal_gen at py_dir 
+if os.path.exists(py_dir):
+   shutil.rmtree(py_dir)
+shutil.copytree('signal_gen',py_dir)
+
+print("Done downloading signal_gen_proj from git!")
 setup(
-   name = "test",
+   name = "signal_gen_proj",
    version = '1.0',
-   url = 'https://github.com/adriankaisinclair/test',
-   license = 'All right',
+   url = 'https://github.com/adriankaisinclair/signal_gen_proj',
+   license = 'BSD 3',
    author = "Adrian Sinclair",
    author_email = "aksincla@asu.edu",
    packages = [],
    package_data = {
-   '' : ['*.txt','*.md'],
+   '' : ['*.txt','*.md','*.ipynb'],
    },
-   description = "test"
+   description = "signal_gen_proj"
 )
